@@ -1,4 +1,3 @@
-
 //business logic
 function Contact(first, last) {
   this.firstName = first;
@@ -15,9 +14,20 @@ function Address(street, city, state) {
 Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
+
 Address.prototype.fullAddress = function() {
   return this.street + ", " + this.city + ", " + this.state;
 }
+
+function resetFields() {
+    $("input#new-first-name").val("");
+    $("input#new-last-name").val("");
+    $("input.new-street").val("");
+    $("input.new-city").val("");
+    $("input.new-state").val("");
+}
+
+// user interface logic
 $(document).ready(function() {
 
   $("#add-address").click(function() {
@@ -65,11 +75,7 @@ $(document).ready(function() {
       });
     });
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input.new-street").val("");
-    $("input.new-city").val("");
-    $("input.new-state").val("");
+    resetFields();
 
   });
 });
